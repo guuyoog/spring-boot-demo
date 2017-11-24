@@ -17,10 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * 这里同样需要配置这两项，不同的是Spring采取的是xml配置方式，这里用Java代码+注解方式配置
  **/
 @Order(Ordered.HIGHEST_PRECEDENCE)
-@Configuration
+@Configuration  //标注一个类是配置类，spring boot在扫到这个注解时自动加载这个类相关的功能，比如前面的文章中介绍的配置AOP和拦截器时加在类上的Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories(basePackages = "com.guuyoog.repository")
-@EntityScan(basePackages = "com.guuyoog.entity")
+@EnableJpaRepositories(basePackages = "com.guuyoog.repository") //@EnableJpaRepositories(basePackages={"dao层对应的包路径"})
+@EntityScan(basePackages = "com.guuyoog.entity") //@EntityScan("entity对应的包路径")
 public class JpaConfiguration {
 
     @Bean
