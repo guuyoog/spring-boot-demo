@@ -29,6 +29,8 @@ public class UserController {
         User user = userService.findUserByName(name);
         if (null != user) {
             return user.getId() + "/" + user.getName() + "/" + user.getPassword();
-        } else return "null";
+        } else {
+            return "null";
+        }
     }
 }
